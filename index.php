@@ -1,4 +1,6 @@
 <?php
+ob_start();
+ob_clean();
 session_start();
 // empty() : kosong
 if (empty($_SESSION['NAMA'])) {
@@ -14,6 +16,20 @@ include 'koneksi.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap-5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+
+    <style>
+        .cover {
+            height: 200px;
+        }
+
+        .cover img {
+            background-size: cover;
+            background-position: center;
+            width: 1300px;
+            height: 350px;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,6 +60,27 @@ include 'koneksi.php';
     <script src="bootstrap-5.3.3/dist/js/moment.js"></script>
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
+
+    <!--summernote -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+    
+
+    <script>
+      $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
 
     <script>
         $("#id_peminjaman").change(function() {
